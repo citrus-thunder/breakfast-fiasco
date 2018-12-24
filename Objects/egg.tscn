@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/egg.gd" type="Script" id=1]
+[ext_resource path="res://Assets/egg.svg" type="Texture" id=2]
+
+[node name="egg" type="Node2D"]
+
+position = Vector2( 900, 210 )
+scale = Vector2( 0.271552, 0.271552 )
+script = ExtResource( 1 )
+is_falling = true
+current_position = 0
+pos0 = NodePath("pos0")
+pos1 = NodePath("pos1")
+pos2 = NodePath("pos2")
+pos3 = NodePath("pos3")
+pos4 = NodePath("pos4")
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="pos0" type="Node2D" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="pos1" type="Node2D" parent="." index="2"]
+
+position = Vector2( 0, 300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pos2" type="Node2D" parent="." index="3"]
+
+position = Vector2( 0, 500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pos3" type="Node2D" parent="." index="4"]
+
+position = Vector2( 0, 700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pos4" type="Node2D" parent="." index="5"]
+
+position = Vector2( 0, 900 )
+_sections_unfolded = [ "Transform" ]
+
+

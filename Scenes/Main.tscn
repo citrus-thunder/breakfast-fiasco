@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://Assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Serin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Serin.gd" type="Script" id=4]
+[ext_resource path="res://Objects/egg.tscn" type="PackedScene" id=5]
+
+[node name="Root" type="Node" index="0"]
+
+script = ExtResource( 1 )
+egg1 = NodePath("egg1")
+egg2 = NodePath("egg2")
+egg3 = NodePath("egg3")
+scoreLabel = NodePath("Label")
+dropDelay = 100
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 81.3964, 1.50732 )
+scale = Vector2( 0.892228, 0.892228 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="player_position1" type="Node2D" parent="." index="1"]
+
+position = Vector2( 890, 430 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="player_position2" type="Node2D" parent="." index="2"]
+
+position = Vector2( 636, 430 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="player_position3" type="Node2D" parent="." index="3"]
+
+position = Vector2( 355, 430 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Serin" parent="." index="4" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 325.129, 458.784 )
+scale = Vector2( 2.64788, 2.64788 )
+script = ExtResource( 4 )
+pos1 = NodePath("../player_position1")
+pos2 = NodePath("../player_position2")
+pos3 = NodePath("../player_position3")
+
+[node name="Sprite" parent="Serin" index="0"]
+
+offset = Vector2( -130, 0 )
+
+[node name="egg1" parent="." index="5" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+egg_position = 0
+
+[node name="egg2" parent="." index="6" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 630, 210 )
+egg_position = 1
+
+[node name="egg3" parent="." index="7" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 350, 220 )
+egg_position = 2
+
+[node name="Label" type="Label" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 88.0
+margin_top = 8.0
+margin_right = 241.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Score: 0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_colors" ]
+
+[connection signal="PositionCheck" from="Serin" to="egg2" method="_on_Serin_PositionCheck"]
+
+[connection signal="PositionCheck" from="Serin" to="egg1" method="_on_Serin_PositionCheck"]
+
+[connection signal="PositionCheck" from="Serin" to="egg3" method="_on_Serin_PositionCheck"]
+
+[connection signal="egg_dropped" from="egg1" to="." method="_on_egg_dropped"]
+
+[connection signal="egg_dropped" from="egg2" to="." method="_on_egg_dropped"]
+
+[connection signal="egg_dropped" from="egg3" to="." method="_on_egg_dropped"]
+
+
+[editable path="Serin"]
+[editable path="egg1"]
+[editable path="egg2"]
+[editable path="egg3"]
