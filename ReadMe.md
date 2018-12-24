@@ -1,4 +1,4 @@
-#Breakfast Fiasco
+# Breakfast Fiasco
 
 A simple game made in Godot as a gift to my wife. Based loosely on a scene in one of her projects-in-progress
 
